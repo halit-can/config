@@ -1,5 +1,5 @@
 server:
-  port: 8081
+  port: ${SERVER_PORT:8081}
 
 spring:
   jpa:
@@ -12,3 +12,16 @@ spring:
     url: jdbc:mysql://34.68.101.6:3306/order
     username: craft
     password: 1234
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: refresh, health
+
+feign:
+  client:
+    config:
+      default:
+        connectTimeout: 160000000
+        readTimeout: 160000000

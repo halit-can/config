@@ -1,5 +1,5 @@
 server:
-  port: 8082
+  port: ${SERVER_PORT:8082}
 
 spring:
   jpa:
@@ -12,3 +12,9 @@ spring:
     url: jdbc:mysql://34.68.101.6:3306/payment
     username: craft
     password: 1234
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: refresh, health
